@@ -227,24 +227,32 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                DataTable Example
+                                Albums
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
+                                    <c:if test="${not empty albums}">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Title</th>
+                                                    <th>Artist</th>
+                                                    <th>Genre</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach var="album" items="${albums}">
+                                                    <tr>
+                                                        <td>${album.id}</td>
+                                                        <td>${album.title}</td>
+                                                        <td>${album.artist}</td>
+                                                        <td>${album.genre}</td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </c:if>
                                 </div>
                             </div>
                         </div>
